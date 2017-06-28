@@ -1,0 +1,29 @@
+.jumbotron{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+
+}
+.column-heading {
+  font-weight: bold;
+  text-align: center;
+}
+
+.container-heading{
+  background-color: yellow;
+  padding: 4px;
+}
+
+.info-container{
+  border: solid grey 2px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+td {
+  text-align: center;
+}

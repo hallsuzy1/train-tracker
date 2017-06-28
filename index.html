@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel = "stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel = "stylesheet" href = "assets/style.css">
+    <title>Train Tracker</title>
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+  </head>
+  <body>
+    <div class = "container">
+
+      <div class = "jumbotron">
+        <h1>Welcome to the Train Tracker!</h1>
+        <h4>If you and your friend group are looking for one central location to keep track of all of your train data, then <br> THIS IS THE APP FOR YOU!</h4>
+        <h4>Enter your train data below to update the website for you and all of your friends to see.</h4>
+      </div>
+
+      <div class="table-responsive info-container">
+        <div class = "container-heading">Current Train Schedule</div>
+        <table class="table table-striped train-table">
+          <tr>
+            <td class = "column-heading">Train Name</td>
+            <td class = "column-heading">Destination</td>
+            <td class = "column-heading">Frequency (min)</td>
+            <td class = "column-heading">Next Arrival</td>
+            <td class = "column-heading">Minutes Away</td>
+          </tr>
+          <tr>
+            <td>Midnight Train</td>
+            <td>Georgia</td>
+            <td>1440</td>
+            <td>24:00</td>
+            <td>Minutes Away</td>
+          </tr>
+          <tr>
+            <td>Drops of Jupiter</td>
+            <td>San Francisco</td>
+            <td>120</td>
+            <td>8:00</td>
+            <td>Minutes Away</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class = "info-container">
+        <div class = "container-heading">Add a Train</div>
+      <form>
+        <div class="form-group">
+          <label for="trainName">Train Name</label>
+          <input type="text" class="form-control" id="trainName-input" placeholder="Type Train Name Here">
+        </div>
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input type="text" class="form-control" id="destination-input" placeholder="Type Destination Here">
+        </div>
+        <div class="form-group">
+          <label for="trainTime">First Train Time (HH:mm - military time)</label>
+          <input type="text" class="form-control" id="trainTime-input" placeholder="Type First Time Here">
+        </div>
+        <div class="form-group">
+          <label for="frequency">Frequency</label>
+          <input type="text" class="form-control" id="frequency-input" placeholder="Type Train Frequency Here">
+        </div>
+
+
+        <button type="submit" class="btn btn-default" id = "add-train">Submit</button>
+      </form>
+    </div>
+
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/apps.js"></script>
+  </body>
+</html>
