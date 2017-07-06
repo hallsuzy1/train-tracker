@@ -16,10 +16,13 @@ var database = firebase.database();
 
 // Initial variable values to be captured
 
+
 var trainName = "";
 var destination = "";
 var trainTime = "";
 var frequency = "";
+var nextTrain = "";
+var minutesAway = "";
 
 
 // Capture Button Click
@@ -40,7 +43,6 @@ $("#add-train").on("click", function() {
   });
 
 
-
 });
 
 
@@ -48,32 +50,18 @@ $("#add-train").on("click", function() {
 database.ref().on("value", function(snapshot) {
 
   // Log everything that's coming out of snapshot
+  console.log(moment(trainTime).format("H"))
   console.log(snapshot.val());
   console.log(snapshot.val().trainName);
   console.log(snapshot.val().destination);
   console.log(snapshot.val().trainTime);
   console.log(snapshot.val().frequency);
 
-
+// append new row to the train table
   $(".train-table > tbody").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" +
-  snapshot.val().trainTime + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().frequency + "</td></tr>");
-});
-    // var counter = 1;
-    // var newRow = $("<tr> <td> 'trainName' </td> </tr>");
-
-    // $('table.train-table').append(newRow);
-    // $('#train-table > tbody:last').append(newRow);
-
-
-
-  // Change the HTML to reflect
-  // $("#name-display").html(snapshot.val().trainName);
-  // $("#email-display").html(snapshot.val().destination);
-  // $("#age-display").html(snapshot.val().trainTime);
-  // $("#comment-display").html(snapshot.val().frequency);
+  snapshot.val().trainTime + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().nextTrain + "</td> <td>" + snapshot.val().minutesAway + "</td></tr>");
 
   // Handle the errors
-// },
-// function(errorObject) {
-//   console.log("Errors handled: " + errorObject.code);
-// });
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});
