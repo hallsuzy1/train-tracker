@@ -40,14 +40,6 @@ $("#add-train").on("click", function() {
   });
 
 
-  var counter = 1;
-  var newRow = $('<tr><td>< trainName' +
-      counter + '/></td> <td>< destination' +
-      counter + '/></td> <td>< trainTime' +
-      counter + '/></td> <td>< frequency' +
-      counter + '"/></td></tr>');
-      counter++;
-  $('table.train-table').append(newRow);
 
 });
 
@@ -62,13 +54,26 @@ database.ref().on("value", function(snapshot) {
   console.log(snapshot.val().trainTime);
   console.log(snapshot.val().frequency);
 
+
+  $(".train-table > tbody").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" +
+  snapshot.val().trainTime + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().frequency + "</td></tr>");
+});
+    // var counter = 1;
+    // var newRow = $("<tr> <td> 'trainName' </td> </tr>");
+
+    // $('table.train-table').append(newRow);
+    // $('#train-table > tbody:last').append(newRow);
+
+
+
   // Change the HTML to reflect
-  $("#name-display").html(snapshot.val().trainName);
-  $("#email-display").html(snapshot.val().destination);
-  $("#age-display").html(snapshot.val().trainTime);
-  $("#comment-display").html(snapshot.val().frequency);
+  // $("#name-display").html(snapshot.val().trainName);
+  // $("#email-display").html(snapshot.val().destination);
+  // $("#age-display").html(snapshot.val().trainTime);
+  // $("#comment-display").html(snapshot.val().frequency);
 
   // Handle the errors
-}, function(errorObject) {
-  console.log("Errors handled: " + errorObject.code);
-});
+// },
+// function(errorObject) {
+//   console.log("Errors handled: " + errorObject.code);
+// });
