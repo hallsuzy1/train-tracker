@@ -2,7 +2,7 @@
 
 // Initialize Firebase
 var config = {
-  apiKey: ,
+  apiKey:  ,
   authDomain: "train-tracker-916c4.firebaseapp.com",
   databaseURL: "https://train-tracker-916c4.firebaseio.com",
   projectId: "train-tracker-916c4",
@@ -44,7 +44,7 @@ var frequency = "";
 
 
 // Capture Button Click
-$("#add-train").on("click", function() {
+$("#add-train").on("click", function(event) {
   // Don't refresh the page!
   event.preventDefault();
 
@@ -92,7 +92,7 @@ $("#add-train").on("click", function() {
 
 
 // Firebase watcher + initial loader HINT: .on("value")
-database.ref().on("value", function(snapshot) {
+database.ref().on("child_added", function(snapshot) {
 
   // Log everything that's coming out of snapshot
 
@@ -103,8 +103,8 @@ database.ref().on("value", function(snapshot) {
   console.log(snapshot.val().frequency);
 
 // append new row to the train table
-  $(".train-table > tbody").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" +
-  snapshot.val().trainTime + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().nextTrain + "</td> <td>" + snapshot.val().minutesAway + "</td></tr>");
+  // $(".train-table > tbody").append("<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" +
+  // snapshot.val().trainTime + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().nextTrain + "</td> <td>" + snapshot.val().minutesAway + "</td></tr>");
 
 
   // Handle the errors
@@ -116,4 +116,4 @@ $("#trainName-input").val("");
 $("#destination-input").val("");
 $("#trainTime-input").val("");
 $("#frequency-input").val("");
-});
+ });
